@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-second-project2": {
+    "tattoo-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-second-project2",
+            "outputPath": "dist/tattoo-website",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "my-second-project2:build:production"
+              "buildTarget": "tattoo-website:build:production"
             },
             "development": {
-              "buildTarget": "my-second-project2:build:development"
+              "buildTarget": "tattoo-website:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "my-second-project2:build"
+            "buildTarget": "tattoo-website:build"
           }
         },
         "test": {

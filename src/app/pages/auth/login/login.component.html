@@ -1,0 +1,15 @@
+<div class="main_component">
+    <h1>Login</h1>
+    <span>
+        <Label for="email">Email</Label>
+        <input type="email" [formControl]="email">
+    </span>
+    <span>
+        <Label for="password">Password</Label>
+        <input type="password" [formControl]="password">
+    </span>
+    <span>
+        <button (click)="login()">Login</button>
+        <button [routerLink]="'/register'">Register</button>
+    </span>
+</div>

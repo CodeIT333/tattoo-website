@@ -1,0 +1,32 @@
+<div class="main_component">
+    <h1>Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit">
+        <div formGroupName="name">
+            <div>
+                <Label for="firstname">First name</Label>
+                <input type="text" formControlName="firstname">
+            </div>
+            <div>
+                <Label for="lastname">Last name</Label>
+                <input type="text" formControlName="lastname">
+            </div>
+        </div>
+        <div>
+            <Label for="email">Email</Label>
+            <input type="email" formControlName="email">
+        </div>
+        <div>
+            <Label for="password">Password</Label>
+            <input type="password" formControlName="password">
+        </div>
+        <div>
+            <Label for="repassword">Password again</Label>
+            <input type="password" formControlName="repassword">
+        </div>
+        <div>
+            <button type="submit">Register</button>
+            <button [routerLink]="'/login'">Login</button>
+            <button (click)="goBack()">Back</button>
+        </div>
+    </form>
+</div>
