@@ -13,8 +13,9 @@ export class MenuComponent {
 
   constructor() { }
 
-  menuSwitch(){
-    this.selectedPage.emit(this.currentPage);
+  menuSwitch(page: string){
+    //this.selectedPage.emit(this.currentPage);
+    this.selectedPage.emit(page);
   }
 
 }
