@@ -1,0 +1,24 @@
+<!--
+<select [(ngModel)]="currentPage" (change)="menuSwitch()">
+    <option value="main">Main</option>
+    <option value="gallery">Gallery</option>
+    <option value="introduce">Introducing</option>
+    <option value="booking">Booking an appointment</option>
+    <option value="login">Login</option>
+    <option value="register">Register</option>
+</select>
+-->
+<header class="menu">
+    <nav class="menu-nav">
+      <ul class="menu-list">
+        <li class="menu-item" [class.active]="currentPage === 'main'"><a (click)="menuSwitch('main')">Main</a></li>
+        <li class="menu-item" [class.active]="currentPage === 'gallery'"><a (click)="menuSwitch('gallery')">Gallery</a></li>
+        <li class="menu-item" [class.active]="currentPage === 'introduce'"><a (click)="menuSwitch('introduce')">Introducing</a></li>
+        <li class="menu-item" [class.active]="currentPage === 'booking'"><a (click)="menuSwitch('booking')">Booking an appointment</a></li>
+        <li class="menu-item" [class.active]="currentPage === 'login'"><a (click)="menuSwitch('login')">Login</a></li>
+        <li class="menu-item" [class.active]="currentPage === 'register'"><a (click)="menuSwitch('register')">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  
