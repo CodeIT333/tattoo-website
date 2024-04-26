@@ -7,7 +7,7 @@ import { GalleryComponent } from './gallery.component';
 
 @NgModule({
   declarations: [
-    GalleryComponent  // csak akkor fog betoltodni, ha a GalleryModule is betoltodik
+    GalleryComponent
   ],
   imports: [
     CommonModule,

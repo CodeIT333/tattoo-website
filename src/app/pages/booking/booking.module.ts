@@ -7,7 +7,7 @@ import { BookingComponent } from './booking.component';
 
 @NgModule({
   declarations: [
-    BookingComponent,
+    BookingComponent
   ],
   imports: [
     CommonModule,

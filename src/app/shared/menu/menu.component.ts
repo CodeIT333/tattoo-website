@@ -9,7 +9,7 @@ export class MenuComponent {
 
   @Input() currentPage: string = '';
   @Output() selectedPage: EventEmitter<string> = new EventEmitter<string>();
-
+  @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -18,4 +18,7 @@ export class MenuComponent {
     this.selectedPage.emit(page);
   }
 
+  close(){
+    this.onCloseSidenav.emit(true);
+  }
 }

@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButton } from '@angular/material/button';
+import { MatFormField, MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -13,7 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RegisterRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormField,
+    MatInputModule,
+    MatButton,
+    MatProgressSpinnerModule,
   ]
 })
 export class RegisterModule { }

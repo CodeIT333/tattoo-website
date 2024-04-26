@@ -1,0 +1,69 @@
+.main_component{
+    margin: 0px;
+}
+
+
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.columns > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//----------------------------------------------------------------------------//
+.first-column{
+    display: flex;
+    align-items: center;
+}
+.brand{
+    margin-bottom: 0;
+}
+.brand-container{
+    align-items: center;
+}
+
+//----------------------------------------------------------------------------//
+.second-column{
+    display: inline-grid;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.open{
+    display: flex;
+}
+.open div:first-child{
+    padding-right: 7.5px;
+}
+.open div:last-child{
+    padding-left: 7.5px;
+}
+
+.days, .hours {
+    margin: 0;
+    padding: 0;
+}
+.days p, .hours p {
+    margin-bottom: 0;
+}
+.phone{
+    margin-top: 20px;
+}
+.documents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+//----------------------------------------------------------------------------//
+.third-column{
+    display: flex;
+    align-items: center;
+}
+.social-media p{
+    margin-bottom: 0px;
+}

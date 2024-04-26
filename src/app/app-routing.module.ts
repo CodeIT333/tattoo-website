@@ -38,6 +38,7 @@ const routes: Routes = [
   { 
     path: 'register', loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterModule) 
   },
+  { path: 'gallery', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule) },
   {
     // route levedese | fontos, hogy a route legvegen legyen
     path: '**',

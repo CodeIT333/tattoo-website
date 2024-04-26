@@ -1,6 +1,6 @@
-import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -29,5 +29,4 @@ export class RegisterComponent {
   goBack(){
     this.location.back();
   }
-
 }

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   page = ""
@@ -41,5 +42,14 @@ export class AppComponent {
     //this.page = selectedPage; -> mar nem kell a router miatt
     this.router.navigateByUrl(selectedPage)
   }
+
+  onToggleSidenav(sidenav: MatSidenav){
+    sidenav.toggle();
+  }
+
+  onClose(event: any, sidenav: MatSidenav){
+    if(event === true){
+      sidenav.close();
+    }
+  }
 }
- 
