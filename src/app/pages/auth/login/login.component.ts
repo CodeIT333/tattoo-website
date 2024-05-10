@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'console';
 import { Observable, Subscription } from 'rxjs';
 import { LoadingService } from '../../../shared/services/loading.service';
+import { AuthService } from '../../../shared/services/auth.service';
 
 
 @Component({
@@ -20,11 +20,11 @@ export class LoginComponent {
 
   loading: boolean = false;
   
-  constructor(private router: Router, private loadingService: LoadingService) { }
+  constructor(private router: Router, private loadingService: LoadingService, private authService: AuthService) { }
 
   async login(){
     this.loading = true;
-
+    /*
     this.loadingObservation = this.loadingService.loadingWithObservable(this.email.value as string, this.password.value as string)
     this.loadingSubscription = this.loadingObservation
       .subscribe(
@@ -39,5 +39,14 @@ export class LoginComponent {
           }
         }
       )
+      */
+
+    this.authService.login(this.email.value as string, this.password.value as string).then(cred => {
+      this.router.navigateByUrl('/main');
+      this.loading = false;
+    }).catch(error => {
+      console.error(error);
+      this.loading = false;
+    })
   }
 }

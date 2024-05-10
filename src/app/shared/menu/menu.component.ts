@@ -8,6 +8,8 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 export class MenuComponent {
 
   @Input() currentPage: string = '';
+  @Input() loggedInUser?: firebase.default.User | null;
+  @Output() onLogout: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() selectedPage: EventEmitter<string> = new EventEmitter<string>();
   @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -18,7 +20,10 @@ export class MenuComponent {
     this.selectedPage.emit(page);
   }
 
-  close(){
+  close(logout?: boolean){
+    if(logout === true){
+      this.onLogout.emit(true);
+    }
     this.onCloseSidenav.emit(true);
   }
 }

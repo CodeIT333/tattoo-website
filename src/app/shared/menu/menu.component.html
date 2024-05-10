@@ -22,13 +22,19 @@
     <a mat-list-item routerLink="/introduce" (click)="close()">
       <span>Introducing</span>
     </a>
-    <a mat-list-item routerLink="/booking" (click)="close()">
+    <a mat-list-item routerLink="/booking" (click)="close()" *ngIf="loggedInUser">
       <span>Booking an appointment</span>
     </a>
-    <a mat-list-item routerLink="/login" (click)="close()">
+    <a mat-list-item routerLink="/profile" (click)="close()" *ngIf="loggedInUser">
+      <span>Profile</span>
+    </a>
+    <a mat-list-item routerLink="/login" (click)="close()" *ngIf="!loggedInUser">
       <span>Login</span>
     </a>
-    <a mat-list-item routerLink="/register" (click)="close()">
+    <a mat-list-item routerLink="/login" (click)="close(true)" *ngIf="loggedInUser">
+      <span>Logout</span>
+    </a>
+    <a mat-list-item routerLink="/register" (click)="close()" *ngIf="!loggedInUser">
       <span>Register</span>
     </a>
   </mat-nav-list>

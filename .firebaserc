@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "rising-sun-artistry": {
+      "hosting": {
+        "tattoo-website": [
+          "tattoo-website"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "rising-sun-artistry"
+  }
+}

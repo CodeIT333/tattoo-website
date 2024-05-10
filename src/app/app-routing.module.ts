@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
   { 
@@ -8,7 +9,13 @@ const routes: Routes = [
   },
   { 
     path: 'booking', 
-    loadChildren: () => import('./pages/booking/booking.module').then(m => m.BookingModule) 
+    loadChildren: () => import('./pages/booking/booking.module').then(m => m.BookingModule),
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'profile', 
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
+    canActivate: [AuthGuard]
   },
   { 
     path: 'gallery', 
@@ -38,7 +45,6 @@ const routes: Routes = [
   { 
     path: 'register', loadChildren: () => import('./pages/auth/register/register.module').then(m => m.RegisterModule) 
   },
-  { path: 'gallery', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule) },
   {
     // route levedese | fontos, hogy a route legvegen legyen
     path: '**',

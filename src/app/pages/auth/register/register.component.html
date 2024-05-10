@@ -2,7 +2,7 @@
     <h1>Register</h1>
 </div>
 <div class="main_component">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div formGroupName="name">
             <mat-form-field>
                 <mat-label for="firstname">First name</mat-label>

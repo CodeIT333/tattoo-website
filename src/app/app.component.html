@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -15,9 +15,11 @@
           <li class="menu-item"><a routerLink="/main">Main</a></li>
           <li class="menu-item"><a routerLink="/gallery">Gallery</a></li>
           <li class="menu-item"><a routerLink="/introduce">Introducing</a></li>
-          <li class="menu-item"><a routerLink="/booking">Booking an appointment</a></li>
-          <li class="menu-item"><a routerLink="/login">Login</a></li>
-          <li class="menu-item"><a routerLink="/register">Register</a></li>
+          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/booking">Booking an appointment</a></li>
+          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/profile">Profile</a></li>
+          <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/login">Login</a></li>
+          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/login" (click)="logout()">Logout</a></li>
+          <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/register">Register</a></li>
         </ul>
       </div>
     </mat-toolbar>
