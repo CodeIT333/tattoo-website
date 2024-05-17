@@ -29,10 +29,6 @@ const routes: Routes = [
     path: 'carrier', 
     loadChildren: () => import('./pages/carrier/carrier.module').then(m => m.CarrierModule) 
   },
-  { 
-    path: 'introduce', 
-    loadChildren: () => import('./pages/introduce/introduce.module').then(m => m.IntroduceModule) 
-  },
   {
     // alapbol a main-re
     path: '', 

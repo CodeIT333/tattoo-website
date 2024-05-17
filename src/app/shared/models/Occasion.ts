@@ -1,8 +1,9 @@
 export interface Occasion {
     id: string;
-    artist_user_id?: string,    // muvesz
+    // next featue
+    // artist_image_url?: string,    // muvesz
     user_id?: string,
+    description: string;
     date: number;
-    image_id?: string;
-    comment_id?: string;
+    image_url?: string;
 }

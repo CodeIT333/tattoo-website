@@ -1,3 +1,23 @@
 <div class="main_component">
-    <h1>Welcome to my homepage!</h1>
+    <header>
+        <h1 class="title">Rising Sun Artistry</h1>
+        <img class="opening-img" src="assets/opening.jpg" alt="opening">
+    </header>
+    <section class="introducing-section">
+        <h2>Introducing</h2>
+        <p>{{ introducingText }}</p>
+        <img [src]="studioImageUrl" alt="studio">
+    </section>
+    <section class="crew-artists-section">
+        <h2>Crew</h2>
+        <div class="artists-grid">
+            <div class="artist-card" *ngFor="let artist of artists">
+            <img class="artist-image" [src]="artist.imageUrl" alt="{{ artist.name }}">
+            <div class="artist-info">
+                <p>{{ artist.name }}</p>
+                <p>{{ artist.role }}</p>
+            </div>
+            </div>
+        </div>
+    </section>
 </div>

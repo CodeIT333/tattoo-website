@@ -1,0 +1,23 @@
+.profile-container {
+  display: flex;
+}
+  
+.left-column {
+  flex: 0 0 300px; /* Fixed width */
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Enable scrolling */
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.right-column {
+  flex: 1; /* Take remaining width */
+  padding: 20px;
+}
+
+.tattoo-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+  

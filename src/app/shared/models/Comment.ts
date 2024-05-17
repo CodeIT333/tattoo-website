@@ -3,4 +3,5 @@ export interface Comment {
     username: string;
     comment: string;
     date: number;
+    occasion_id: string;
 }

@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CommentService } from '../../../services/comment.service';
+import { CommentService } from '../../../shared/services/comment.service';
 import { Comment } from '../../../shared/models/Comment';
 import { User } from '../../../shared/models/User';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../shared/services/user.service';
 import { error } from 'console';
+import { Occasion } from 'src/app/shared/models/Occasion';
 
 @Component({
   selector: 'app-comment',
@@ -14,7 +15,7 @@ import { error } from 'console';
 export class CommentComponent implements OnInit {
 
   user?: User;
-
+  @Input() occasionInput!: Occasion;
   comments: Array<Comment> = []
 
 
@@ -23,6 +24,7 @@ export class CommentComponent implements OnInit {
     username: '',
     comment: '',
     date: 0,
+    occasion_id: this.occasionInput.id,
   })
 
   constructor(private fb: FormBuilder, private commentService: CommentService, private userService: UserService){}
@@ -37,7 +39,7 @@ export class CommentComponent implements OnInit {
         this.commentForm.get('username')?.setValue(this.user.username);
     }
     }, error => {
-      // console.log(error)
+      console.log(error)
     })
   }
 

@@ -1,22 +1,27 @@
 [
   {
       "id": "OQyRttOV4l8",
-      "photo_name": "blackwork-geometric_backpiece_by_dillon_forte"
+      "photo_name": "blackwork-geometric_backpiece-back",
+      "artist_name" : "Dillon Forte"
   },
   {
       "id": "5XP-n_Xqqv8",
-      "photo_name": "Jie Wang"
+      "photo_name": "black-katana-arm",
+      "artist_name" : "Cam Tunlog"
   },
   {
       "id": "Shf_B7x8gDA",
-      "photo_name": "Emmalee Couturier"
+      "photo_name": "black-minimal",
+      "artist_name" : "Hygee Skinart"
   },
   {
       "id": "lFAhbzmvpak",
-      "photo_name": "Kristaps Ungurs"
+      "photo_name": "black-snake-full_arm",
+      "artist_name" : "Geum Taena"
   },
   {
       "id": "eFXho78pQH8",
-      "photo_name": "Deniz Demirci"
+      "photo_name": "black_red-moth-shoulder",
+      "artist_name" : "Geum Taena"
   }
 ]

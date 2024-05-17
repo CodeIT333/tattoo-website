@@ -1,6 +1,10 @@
-
+app-contact {
+    bottom: 0;
+    width: 100%;
+}
 mat-sidenav-container{
     height: 100%;
+    background-color: #2d2c2c;
 }
 .menu_list li{
     list-style: none;
@@ -11,4 +15,15 @@ mat-sidenav-container{
 }
 .menu_list li a:hover{
     color: rgb(183, 183, 183);
+}
+
+.sticky-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+.content {
+    margin-top: 4rem;
 }

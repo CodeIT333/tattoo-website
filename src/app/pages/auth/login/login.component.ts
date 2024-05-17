@@ -49,4 +49,10 @@ export class LoginComponent {
       this.loading = false;
     })
   }
+
+
+  ngOnDestroy() {
+    this.loadingSubscription?.unsubscribe();
+  }
+  
 }

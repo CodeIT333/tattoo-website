@@ -3,8 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { AuthService } from '../../../shared/services/auth.service';
 import { User } from '../../../shared/models/User';
-import { UserService } from '../../../services/user.service';
-import { error } from 'console';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-register',

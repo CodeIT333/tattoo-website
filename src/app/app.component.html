@@ -3,28 +3,31 @@
     <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <div fxHide.gt-sm>
-        <button mat-icon-button (click)="onToggleSidenav(sidenav)">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-      <div>Rising Sun Artistry</div>
-      <div fxFlex fxLayout fxLayoutAlign="center" fxHide.sm>
-        <ul fxLayout fxLayoutGap="10px" class="menu_list">
-          <li class="menu-item"><a routerLink="/main">Main</a></li>
-          <li class="menu-item"><a routerLink="/gallery">Gallery</a></li>
-          <li class="menu-item"><a routerLink="/introduce">Introducing</a></li>
-          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/booking">Booking an appointment</a></li>
-          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/profile">Profile</a></li>
-          <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/login">Login</a></li>
-          <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/login" (click)="logout()">Logout</a></li>
-          <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/register">Register</a></li>
-        </ul>
-      </div>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-    <app-contact></app-contact>
+    <div class="sticky-menu">
+      <mat-toolbar color="primary" cdkScrollable>
+        <div fxHide.gt-sm>
+          <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div>Rising Sun Artistry</div>
+        <div fxFlex fxLayout fxLayoutAlign="center" fxHide.sm>
+          <ul fxLayout fxLayoutGap="10px" class="menu_list">
+            <li class="menu-item"><a routerLink="/main">Main</a></li>
+            <li class="menu-item"><a routerLink="/gallery">Gallery</a></li>
+            <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/booking">Booking an appointment</a></li>
+            <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/profile">Profile</a></li>
+            <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/login">Login</a></li>
+            <li *ngIf="loggedInUser" class="menu-item"><a routerLink="/login" (click)="logout()">Logout</a></li>
+            <li *ngIf="!(loggedInUser)" class="menu-item"><a routerLink="/register">Register</a></li>
+          </ul>
+        </div>
+      </mat-toolbar>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+      <app-contact *ngIf="page !== 'profile'"></app-contact>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

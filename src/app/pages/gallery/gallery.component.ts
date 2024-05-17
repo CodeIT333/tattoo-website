@@ -17,13 +17,9 @@ export class GalleryComponent implements OnInit {
   constructor(private galleryService: GalleryService) {}
 
   ngOnInit(): void {
-    this.galleryService.loadImageMeta('_credits.json').subscribe((data: Array<Image>) => {
-      this.galleryObject = data;
-    })
+    
   }
 
-  loadImage(imageObject: Image){
-    // ...
-  }
+  
 
 }

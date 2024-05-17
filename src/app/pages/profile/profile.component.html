@@ -1,1 +1,59 @@
-<p>profile works!</p>
+<span class="loading-indicator" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</span>
+
+<div class="profile-container">
+
+    <div class="left-column">
+
+        <mat-card class="profile-data">
+            <div class="username">
+                <p class="title">Username</p>
+                <p class="title-data">{{ user?.username }}</p>
+            </div>
+            <div class="email">
+                <p class="title">Email</p>
+                <p class="title-data">{{ user?.email }}</p>
+            </div>
+            <div class="name">
+                <p class="title">Name</p>
+                <span class="firstname">{{ user?.name?.firstname }}</span>
+                <span class="lastname">{{ user?.name?.lastname }}</span>
+            </div>
+        </mat-card>
+
+        <h2>Change Password</h2>
+        <p>Under construction...</p>
+        <mat-form-field appearance="fill">
+            <input matInput type="password" placeholder="New Password">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput type="password" placeholder="Confirm New Password">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Submit</button>
+
+        <button mat-raised-button color="warn">Delete Profile | Under construction...</button>
+    </div>
+
+    <div class="right-column">
+        <h2>Occasions</h2>
+
+        <div *ngIf="occasions?.length">
+            <div class="occasion-item" *ngFor="let occasion of occasions;">
+
+                <app-occasion [actualOccasionInput]="occasion" [userInput]="user"></app-occasion>
+    
+            </div>
+        </div>
+   
+        <div *ngIf="!occasions?.length">
+            <div class="no-occasions">
+                <p>You have no occasions yet</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+  
+  

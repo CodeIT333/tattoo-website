@@ -22,7 +22,6 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import { CommentComponent } from './pages/profile/comment/comment.component';
 
 @NgModule({
   declarations: [
