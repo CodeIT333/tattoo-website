@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/services/auth.guard';
 
 const routes: Routes = [
@@ -25,10 +25,6 @@ const routes: Routes = [
     path: 'not-found', 
     loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) 
   },
-  { 
-    path: 'carrier', 
-    loadChildren: () => import('./pages/carrier/carrier.module').then(m => m.CarrierModule) 
-  },
   {
     // alapbol a main-re
     path: '', 
@@ -48,8 +44,12 @@ const routes: Routes = [
   }
 ];
 
+const routerOptions: ExtraOptions = {
+  scrollPositionRestoration: 'enabled', // scrolls to top
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

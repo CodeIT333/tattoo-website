@@ -1,1 +1,10 @@
-<p>gallery works!</p>
+<span class="loading-indicator" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</span>
+
+<div class="gallery-container">
+    <div class="image-card" *ngFor="let image of images">
+        <img [src]="image.url" [alt]="image.artist_name" class="gallery-image">
+        <p class="artist-name">By {{ image.artist_name }}</p>
+    </div>
+</div>

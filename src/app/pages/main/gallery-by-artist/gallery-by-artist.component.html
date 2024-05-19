@@ -1,0 +1,22 @@
+<!--
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-content">
+    <h2>{{ artist.name }}</h2>
+    <div class="images-grid">
+        <img *ngFor="let image of artist.images" [src]="image" alt="Tattoo image">
+    </div>
+    <button (click)="closeModal()">Close</button>
+</div>
+-->
+
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>{{ artist.name }}</h2>
+      <div class="modal-images">
+        <!--wrong image id,  ezt a storage-ben kell nezni!!!-->
+        <img *ngFor="let image of artist.images" [src]="image" alt="Tattoo image">
+      </div>
+    </div>
+</div>
+  

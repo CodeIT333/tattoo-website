@@ -1,18 +1,46 @@
 .profile-container {
   display: flex;
-}
+  flex-direction: column;
+  height: 100vh;
   
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
 .left-column {
-  flex: 0 0 300px; /* Fixed width */
-  height: 100vh; /* Full height */
-  overflow-y: auto; /* Enable scrolling */
+  flex: 0 0 300px;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+
+  mat-card {
+    padding: 1.4rem 2rem;
+  }
 }
 
 .right-column {
-  flex: 1; /* Take remaining width */
+  flex: 1;
   padding: 20px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  h2 {
+    color: #ddd;
+  }
+}
+
+.occasions-list {
+  height: 100%;
 }
 
 .tattoo-image {
@@ -20,4 +48,54 @@
   height: 100px;
   margin-right: 20px;
 }
+
+.no-occasions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-data {
+  margin-bottom: 20px;
+
+  .profile-section {
+    margin-bottom: 15px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2c2c2c;
+  }
+
+  .title-data, .firstname, .lastname {
+    font-size: 1em;
+    color: #777;
+  }
+}
+
+.change-password {
+  margin-top: 0;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
   
+  h2 {
+    margin-bottom: 10px;
+    color: #ddd;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #777;
+  }
+
+  .delete-btn {
+    padding: 5px 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    flex-direction: row;
+  }
+}

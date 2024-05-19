@@ -35,10 +35,5 @@ export class UserService {
     return this.afs.collection<User>(this.collectionName).doc(id).delete;
   }
   */
-
-  /*
-  changePassword() {
-    
-  }
-  */
+  
 }

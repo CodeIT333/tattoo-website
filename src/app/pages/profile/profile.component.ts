@@ -1,10 +1,12 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Occasion } from '../../shared/models/Occasion';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OccasionService } from '../../shared/services/occasion.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { User } from '../../shared/models/User';
-import { of, switchMap, tap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../../shared/services/auth.service';
+import { getAuth, updatePassword } from "firebase/auth";
 
 
 @Component({
@@ -13,25 +15,24 @@ import { of, switchMap, tap } from 'rxjs';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit, OnChanges{
-
+  
   user?: User;
   occasions?: Array<Occasion> = [];
   profileForm!: FormGroup;
 
   loading: boolean = false;
 
-
   constructor(
     private occasionService: OccasionService,
-    //private fb: FormBuilder,
-    private userService: UserService
+    private fb: FormBuilder,
+    private userService: UserService,
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) {
-    /*
     this.profileForm = this.fb.group({
-      newPassword: [''],
-      confirmNewPassword: ['']
+      newPassword: ['', Validators.required],
+      confirmNewPassword: ['', Validators.required]
     });
-    */
   }
 
 
@@ -44,19 +45,6 @@ export class ProfileComponent implements OnInit, OnChanges{
     }, error => {
       console.error(error);
     });
-    /*
-    this.userService.getById(user.uid).pipe(
-      tap(data => {
-        this.user = data;
-      }),
-      // get occasions
-      switchMap(() => this.user ? this.occasionService.getOccasionsByUserId(this.user.id) : of([]))).subscribe(occasions => {
-        this.occasions = occasions;
-      }, error => {
-        console.error(error);
-      });
-    */
-   
   }
 
 
@@ -82,25 +70,27 @@ export class ProfileComponent implements OnInit, OnChanges{
   }
 
 
-  /*
+  
   changePassword(): void {
     if (this.profileForm.valid) {
-      const newPassword = this.profileForm.get('newPassword').value;
-      const confirmNewPassword = this.profileForm.get('confirmNewPassword').value;
+      const newPassword = this.profileForm.get('newPassword')?.value;
+      const confirmNewPassword = this.profileForm.get('confirmNewPassword')?.value;
       if (newPassword === confirmNewPassword) {
-        // Call service method to change password
-        this.authService.changePassword(newPassword).then(() => {
-          this.snackBar.open('Password changed successfully!', 'Close', { duration: 3000 });
-        }).catch(error => {
-          console.error('Error changing password: ', error);
-          this.snackBar.open('Failed to change password. Please try again later.', 'Close', { duration: 3000 });
-        });
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if(user){
+          updatePassword(user, newPassword).then(() => {
+            this.snackBar.open('Password changed successfully!', 'Close', { duration: 3000 });
+          }).catch((error: any) => {
+            this.snackBar.open('Failed to change password. Please try again later.', 'Close', { duration: 3000 });
+          });
+        }
       } else {
         this.snackBar.open('Passwords do not match!', 'Close', { duration: 3000 });
       }
     }
   }
-  */
+  
 
 
 /*

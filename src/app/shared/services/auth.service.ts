@@ -24,4 +24,14 @@ export class AuthService {
     return this.auth.signOut();
   }
 
+  changePassword(newPassword: string): Promise<void> {
+    return this.auth.currentUser.then(user => {
+      if (user) {
+        return user.updatePassword(newPassword);
+      } else {
+        throw new Error('No user is currently logged in');
+      }
+    });
+  }
+
 }

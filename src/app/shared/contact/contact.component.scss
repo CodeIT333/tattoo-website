@@ -2,75 +2,131 @@
     position: relative;
     margin-top: 20px;
     bottom: 0;
+    padding: 20px;
+    background-color: #2a2a2a;
+    color: #fff;
+    border-radius: 8px;
 }
 
-
-.main_component{
+.main_component {
     margin: 0px;
+    background-color: #333;
 }
-
 
 .columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .columns > div {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-//----------------------------------------------------------------------------//
-.first-column{
+// First Column Styles
+.first-column {
     display: flex;
     align-items: center;
-}
-.brand{
-    margin-bottom: 0;
-}
-.brand-container{
-    align-items: center;
+    justify-content: center;
 }
 
-//----------------------------------------------------------------------------//
-.second-column{
-    display: inline-grid;
-    justify-content: center;
+.brand {
+    margin-bottom: 2rem;
+    font-size: 3em;
+    font-weight: bold;
+    color: #5966ad;
+}
+
+.brand-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-.open{
-    display: flex;
+
+.under-text {
+    font-size: 1.2em;
+    color: #aaa;
 }
-.open div:first-child{
+
+// Second Column Styles
+.second-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.address {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #ddd;
+}
+
+.open {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.open div:first-child {
     padding-right: 7.5px;
 }
-.open div:last-child{
+
+.open div:last-child {
     padding-left: 7.5px;
 }
 
 .days, .hours {
     margin: 0;
     padding: 0;
+    color: #ddd;
 }
+
 .days p, .hours p {
     margin-bottom: 0;
 }
-.phone{
+
+.phone {
     margin-top: 20px;
+
+    a {
+        color: #5966ad;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
 }
-.documents{
+
+.documents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+        color: #5966ad;
+        text-decoration: none;
+        margin-bottom: 5px;
+    }
+}
+
+// Third Column Styles
+.third-column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-//----------------------------------------------------------------------------//
-.third-column{
-    display: flex;
-    align-items: center;
-}
-.social-media p{
+
+.social-media a {
     margin-bottom: 0px;
+    color: #5966ad;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.social-media p:not(:last-child) {
+    margin-bottom: 10px;
 }

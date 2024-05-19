@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Comment } from '../../../shared/models/Comment';
 import { OccasionService } from '../../../shared/services/occasion.service';
 import { CommentService } from '../../../shared/services/comment.service';
@@ -93,7 +93,6 @@ export class OccasionComponent implements OnInit, OnChanges{
 
   createForm(model: Comment) {
     let formGroup = this.fb.group(model);
-    //formGroup.get('username')?.addValidators([Validators.required]);
     formGroup.get('comment')?.addValidators([Validators.required, Validators.minLength(10), Validators.maxLength(200)]);
     return formGroup;
   }

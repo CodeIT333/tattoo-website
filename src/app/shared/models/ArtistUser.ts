@@ -1,13 +1,11 @@
-// next feature
-/*
+import { Image } from "./Image";
+
 export interface ArtistUser {
-    id: string;
+    //id: string;
     email: string;
-    username: string;
-    name: {
-        firstname: string;
-        lastname: string;
-    }
+    //username: string;
+    name: string;
+    roles: string;
     profile_image_url?: string;
+    images: Image[];
 }
-*/

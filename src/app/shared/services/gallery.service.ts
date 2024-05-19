@@ -30,8 +30,12 @@ export class GalleryService {
     );
   }
 
-  loadImagesByArtistName(artist_username: string) {
-    return this.afs.collection<Image>(this.imageCollectionName, ref => ref.where('artist_name', '==', artist_username).orderBy('date', 'asc')).valueChanges()
+  loadImagesByArtistName(artist_name: string) {
+    return this.afs.collection<Image>(this.imageCollectionName, ref => ref.where('artist_name', '==', artist_name).orderBy('date', 'asc')).valueChanges()
+  }
+
+  loadAll() {
+    return this.afs.collection<Image>(this.imageCollectionName).valueChanges();
   }
 
   // next feature

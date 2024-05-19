@@ -11,13 +11,27 @@ import { Image } from  '../../shared/models/Image';
 export class GalleryComponent implements OnInit {
 
 
-  galleryObject?: Array<Image>;
+  images: Array<{ url: string, artist_name?: string }> = [];
+
+  loading = false;
 
 
   constructor(private galleryService: GalleryService) {}
 
   ngOnInit(): void {
-    
+    this.galleryService.loadAll().subscribe(images => {
+      if (images) {
+        images.forEach(image => {
+          this.galleryService.loadImageUrl(image.image_url).subscribe(url => {
+            this.images.push({ url: url, artist_name: image.artist_name });
+          });
+        });
+      }
+      this.loading = false;
+    }, error => {
+      console.log(error);
+      this.loading = false;
+    });
   }
 
   

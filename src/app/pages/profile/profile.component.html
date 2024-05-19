@@ -3,57 +3,49 @@
 </span>
 
 <div class="profile-container">
-
     <div class="left-column">
-
         <mat-card class="profile-data">
-            <div class="username">
+            <div class="profile-section">
                 <p class="title">Username</p>
                 <p class="title-data">{{ user?.username }}</p>
             </div>
-            <div class="email">
+            <div class="profile-section">
                 <p class="title">Email</p>
                 <p class="title-data">{{ user?.email }}</p>
             </div>
-            <div class="name">
+            <div class="profile-section">
                 <p class="title">Name</p>
                 <span class="firstname">{{ user?.name?.firstname }}</span>
                 <span class="lastname">{{ user?.name?.lastname }}</span>
             </div>
         </mat-card>
 
-        <h2>Change Password</h2>
-        <p>Under construction...</p>
-        <mat-form-field appearance="fill">
-            <input matInput type="password" placeholder="New Password">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput type="password" placeholder="Confirm New Password">
-        </mat-form-field>
-        <button mat-raised-button color="primary">Submit</button>
-
-        <button mat-raised-button color="warn">Delete Profile | Under construction...</button>
+        <div class="change-password delete-profile">
+            <h2>Change Password</h2>
+            <form [formGroup]="profileForm" (ngSubmit)="changePassword()">
+                <mat-form-field appearance="fill">
+                    <input matInput type="password" formControlName="newPassword" placeholder="New Password">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <input matInput type="password" formControlName="confirmNewPassword" placeholder="Confirm New Password">
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </form>
+            <button mat-raised-button color="warn" class="delete-btn">Delete Profile | Under construction...</button>
+        </div>
     </div>
 
     <div class="right-column">
         <h2>Occasions</h2>
-
-        <div *ngIf="occasions?.length">
+        <div class="occasions-list">
             <div class="occasion-item" *ngFor="let occasion of occasions;">
-
                 <app-occasion [actualOccasionInput]="occasion" [userInput]="user"></app-occasion>
-    
             </div>
         </div>
-   
         <div *ngIf="!occasions?.length">
             <div class="no-occasions">
                 <p>You have no occasions yet</p>
             </div>
         </div>
-
     </div>
-
 </div>
-  
-  

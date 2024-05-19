@@ -2,50 +2,42 @@
     <mat-spinner></mat-spinner>
 </span>
 
-
 <div class="occasion-content">
     <div class="occasion-details">
-        <p>{{ actualOccasionInput!.description }}</p>
-        <p>{{ actualOccasionInput!.date | dateFormat }}</p>
+        <h3>Occasion</h3>
+        <p>Details: {{ actualOccasionInput!.description }}</p>
+        <p>Date: {{ actualOccasionInput!.date | dateFormat }}</p>
     </div>
     <img [src]="loadedImageUrl" [alt]="loadedImage?.image_name" class="tattoo-image">
 </div>
 
 <div class="comment-section">
-
-    <!--if the actual occasion has comment-->
-    <mat-card-actions *ngIf="comment">
+    <mat-card *ngIf="comment">
         <form [formGroup]="commentForm" (ngSubmit)="updateComment()">
             <div class="comment-box">
-                <p>{{ comment.date | dateFormat }}</p>
+                <p>Comment date: {{ comment.date | dateFormat }}</p>
                 <mat-form-field>
                     <mat-label for="comment">Write your experience:</mat-label>
-                    <textarea matInput rows="10" cols="50" formControlName="comment" matInput></textarea>
+                    <textarea matInput rows="10" cols="50" formControlName="comment" placeholder="Write a comment"></textarea>
                 </mat-form-field>
                 <div>
-                    <button mat-raised-button color="primary" type="submit">
-                        Comment
-                    </button>
+                    <button mat-raised-button color="primary" type="submit">Comment</button>
                 </div>
             </div>
         </form>
-    </mat-card-actions>
+    </mat-card>
 
-    <!--if the actual occasion has no comment-->
-    <mat-card-actions *ngIf="!comment">
+    <mat-card *ngIf="!comment">
         <form [formGroup]="commentForm" (ngSubmit)="addComment()">
             <div class="comment-box">
                 <mat-form-field>
                     <mat-label for="comment">Write your experience:</mat-label>
-                    <textarea matInput rows="10" cols="50" formControlName="comment" matInput placeholder="Write a comment for your occasion"></textarea>
+                    <textarea matInput rows="10" cols="50" formControlName="comment" placeholder="Write a comment for your occasion"></textarea>
                 </mat-form-field>
                 <div>
-                    <button mat-raised-button color="primary" type="submit">
-                        Comment
-                    </button>
+                    <button mat-raised-button color="primary" type="submit">Comment</button>
                 </div>
             </div>
         </form>
-    </mat-card-actions>
-
+    </mat-card>
 </div>

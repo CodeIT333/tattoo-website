@@ -1,1 +1,61 @@
-<p>booking works!</p>
+<div class="booking-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Book an appointment</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="bookingForm" (ngSubmit)="sendMessage()">
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" formControlName="phone" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Who you are sending the message to</mat-label>
+            <mat-select formControlName="artist" required>
+              <mat-option *ngFor="let artist of artists" [value]="artist.name">
+                {{ artist.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Where do you want the tattoo</mat-label>
+            <textarea matInput formControlName="tattoo_place" required></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>How big tattoo do you want (in cm)</mat-label>
+            <textarea matInput formControlName="tattoo_size" required></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Your Message</mat-label>
+            <textarea matInput formControlName="message" required></textarea>
+          </mat-form-field>
+  
+          <div class="file-input">
+            <label for="file">Attach Image</label>
+            <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">
+              <mat-icon>attach_file</mat-icon>
+            </button>
+            <span *ngIf="selectedFile">{{ selectedFile.name }}</span>
+            <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file">
+          </div>
+  
+          <button class="send-btn" type="submit">Send message</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

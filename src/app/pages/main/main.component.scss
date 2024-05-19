@@ -1,16 +1,8 @@
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-}
-
 .main_component {
     width: 100%;
 }
 
-.main_component header img{
+.main_component header img {
     width: 100%;
     height: 50rem;
     object-fit: cover;
@@ -20,12 +12,15 @@ div {
 .introducing-section {
     padding: 9rem 0 5rem 0;
 }
+
 .introducing-section p {
     padding: 5rem 10rem 7rem 10rem;
 }
 
 .introducing-section img {
     width: 100%;
+    height: 30rem;
+    object-fit: cover;
 }
 
 .introducing-section, .crew-artists-section {
@@ -48,38 +43,102 @@ div {
 .artists-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 20px;
+    justify-content: center;
 
     .artist-card {
-      width: 45%;
-      max-width: 200px;
-      background-color: #2a2a2a;
-      margin-bottom: 20px;
-      text-align: center;
-      overflow: hidden;
-      border-radius: 8px;
+        flex: 1 1 calc(33.333% - 40px); /* Three items per row, adjusting for gaps */
+        max-width: calc(33.333% - 40px);
+        background-color: #2a2a2a;
+        margin-bottom: 20px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 8px;
 
-      .artist-image {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .artist-info {
-        background-color: #4a4a4a;
-        padding: 10px;
-
-        p {
-          margin: 5px 0;
+        .artist-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: 0 -5px;
+            display: block;
         }
-      }
+
+        .artist-info {
+            background-color: #4a4a4a;
+            padding: 10px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    margin: 5px 0 0 0;
+                }
+                .name {
+                    font-size: larger;
+                    font-weight: 800;
+                }
+                button {
+                    padding: 0.4rem;
+                    background-color: #333;
+                    color: #ddd;
+                }
+                .artist-gallery-btn {
+                    width: 50%;
+                    margin: 20px 0 4px 0;
+                }
+                .artist-send_message-btn {
+                    width: 30%;
+                    margin: 4px 0 14px 0;
+                    background-color: #414141;
+                }
+            }
+           
+            .role {
+                font-weight: 500;
+                background-color: #2a2a2a;
+            }
+        }
     }
 }
 
+@media (max-width: 1024px) {
+    .artists-grid {
+        .artist-card {
+            flex: 1 1 calc(50% - 20px); /* Two items per row */
+            max-width: calc(50% - 20px);
+        }
+    }
+    .introducing-section p {
+        padding: 3rem 5rem 4rem 5rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .artists-grid {
+        .artist-card {
+            flex: 1 1 calc(100% - 20px); /* One item per row */
+            max-width: calc(100% - 20px);
+        }
+    }
+    .introducing-section p {
+        padding: 2rem 2rem 3rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .introducing-section p {
+        padding: 1rem 1rem 2rem 1rem;
+        font-size: 1rem;
+    }
+}
 
 .opening-img {
     width: 100%;
-    
 }
 
 .title {
@@ -88,4 +147,24 @@ div {
     position: absolute;
     top: 5em;
     font-size: 8em;
+
+    @media (max-width: 1200px) {
+        font-size: 6em;
+        top: 8em;
+    }
+
+    @media (max-width: 1024px) {
+        font-size: 5em;
+        top: 8em;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 4em;
+        top: 8em;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 3em;
+        top: 8em;
+    }
 }

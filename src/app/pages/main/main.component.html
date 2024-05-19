@@ -1,3 +1,7 @@
+<span class="loading-indicator" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</span>
+
 <div class="main_component">
     <header>
         <h1 class="title">Rising Sun Artistry</h1>
@@ -12,12 +16,19 @@
         <h2>Crew</h2>
         <div class="artists-grid">
             <div class="artist-card" *ngFor="let artist of artists">
-            <img class="artist-image" [src]="artist.imageUrl" alt="{{ artist.name }}">
-            <div class="artist-info">
-                <p>{{ artist.name }}</p>
-                <p>{{ artist.role }}</p>
-            </div>
+                <img class="artist-image" [src]="artist.profile_image_url" alt="{{ artist.name }}">
+                <div class="artist-info">
+                    <div>
+                        <p class="name">{{ artist.name }}</p>
+                        <button class="artist-gallery-btn" mat-raised-button (click)="openArtistGalleryModal(artist)">{{ artist.name }}'s Gallery</button>
+                        <button class="artist-send_message-btn" mat-raised-button (click)="navigateToBooking(artist.name)">Send message</button>
+                    </div>
+                    <p class="role">{{ artist.roles }}</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <app-gallery-by-artist *ngIf="selectedArtist" [artist]="selectedArtist" [closeModal]="closeArtistGalleryModal.bind(this)">
+    </app-gallery-by-artist>
 </div>
