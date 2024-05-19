@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "week-04": {
+    "tattoo-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/week-04",
+            "outputPath": "dist/tattoo-website",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -42,7 +42,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "week-04:build:production"
+              "buildTarget": "tattoo-website:build:production"
             },
             "development": {
-              "buildTarget": "week-04:build:development"
+              "buildTarget": "tattoo-website:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "week-04:build"
+            "buildTarget": "tattoo-website:build"
           }
         },
         "test": {
@@ -113,12 +113,12 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "week-04:build:production",
-              "serveTarget": "week-04:serve:production"
+              "buildTarget": "tattoo-website:build:production",
+              "serveTarget": "tattoo-website:serve:production"
             },
             "development": {
-              "buildTarget": "week-04:build:development",
-              "serveTarget": "week-04:serve:development"
+              "buildTarget": "tattoo-website:build:development",
+              "serveTarget": "tattoo-website:serve:development"
             }
           },
           "defaultConfiguration": "production"
