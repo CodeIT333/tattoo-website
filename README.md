@@ -1,4 +1,11 @@
-# Week04
+Tippek a weboldal tesztelésére:
+
+Egy felhasználónak lehetnek 'Occasion' objektumai, amiket manuálisan kell megadni a Firestore-on keresztül. A kollekciókból kitalálható, hogy milyen összefüggések vannak egymás közt.
+Amint megadunk pár Occasion adatot a Firestore-ban, a Profile oldalon ezek ki is fognak szépen listázódni. Ugyan ilyen a Gallery oldal, ahol a feltöltött képeket listázza ki a weboldal.
+A Profile oldalon a jelszómódosítás és a fiók törlése nem működik, viszont a helye megvan.
+
+------------------------------------------------------------------
+# tattoo-website
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
 
