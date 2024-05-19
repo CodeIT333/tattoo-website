@@ -41,10 +41,10 @@ export class RegisterComponent {
       this.userService.create(user).then(_ => {
         // sucsessfully added to the database
       }).catch(error => {
-        console.log(error);
+        //console.log(error);
       })
     }).catch(error => {
-      console.error(error);
+      //console.error(error);
     });
   }
 

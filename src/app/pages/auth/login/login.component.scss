@@ -1,17 +1,51 @@
-.main_component{
+.main_component {
+    height: 80vh;
+    padding: 0 50px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
-.form{
+
+h1 {
+    color: #ddd;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    align-self: center;
+}
+
+.form {
     display: inline-grid;
     align-self: center;
-    width: 40%;
+    width: 100%;
+    max-width: 500px;
 }
-.button{
+
+.mat-form-field {
+    width: 100%;
+}
+
+.button {
     padding: 5px;
-    width: 50%;
+    width: 100%;
+    margin-top: 1rem;
 }
-.buttons{
-    display: inline;
-    
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    .buttons {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .button {
+        width: 45%;
+    }
 }

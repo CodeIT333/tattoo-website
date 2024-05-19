@@ -45,7 +45,7 @@ export class LoginComponent {
       this.router.navigateByUrl('/main');
       this.loading = false;
     }).catch(error => {
-      console.error(error);
+      //console.error(error);
       this.loading = false;
     })
   }

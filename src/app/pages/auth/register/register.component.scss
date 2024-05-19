@@ -1,26 +1,64 @@
-
-.main_component{
+.main_component {
+    height: 80vh;
+    padding: 40px 50px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-}
-form {
+    flex-direction: column;
+    align-items: center; // Új: középre igazítás horizontálisan
+    text-align: center; // Új: szöveg középre igazítása
+  }
+  .title {
+    color: #ddd;
+    align-self: center;
+    text-align: center;
+    white-space: pre-wrap;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        margin-bottom: 4rem;
+    }
+  }
+  
+  form {
     display: inline-grid;
     align-self: center;
-    width: 40%;
-}
-form div:nth-child(1) mat-form-field {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  form div:nth-child(1) mat-form-field {
     width: 50%;
-}
-@media (max-width: 940px) {
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 600px) {
     form div:nth-child(1) mat-form-field {
+      width: 100%;
+    }
+  
+    .main_component {
+      padding: auto;
+      height: auto;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         width: 100%;
     }
-}
-.button{
+
+    .button {
+      width: 40%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .button {
     width: 50%;
     padding: 5px;
-}
-.button{
-    display: inline;  
-}
+  }
+  
