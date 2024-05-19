@@ -1,7 +1,8 @@
 Tippek a weboldal tesztelésére:
 
-Egy felhasználónak lehetnek 'Occasion' objektumai, amiket manuálisan kell megadni a Firestore-on keresztül. A kollekciókból kitalálható, hogy milyen összefüggések vannak egymás közt.
+Egy felhasználónak lehetnek 'Occasion' objektumai, amiket manuálisan kell megadni a Firestore-on keresztül. A kollekciókból kitalálható, hogy milyen összefüggések vannak egymás közt.(de amúgy a deploy-olt weboldalon vannak adatok, így ezt nem muszáj).
 Amint megadunk pár Occasion adatot a Firestore-ban, a Profile oldalon ezek ki is fognak szépen listázódni. Ugyan ilyen a Gallery oldal, ahol a feltöltött képeket listázza ki a weboldal.
+A bejelentkezés után több oldal is látható/használható, pl. a main oldalon az üzenetküldős gomb, ami a booking oldalra vinne (szóval az is feature, de csak bejelentkezve).
 A Profile oldalon a jelszómódosítás és a fiók törlése nem működik, viszont a helye megvan.
 
 ------------------------------------------------------------------
