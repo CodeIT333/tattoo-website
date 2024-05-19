@@ -6,7 +6,7 @@ import { UserService } from '../../shared/services/user.service';
 import { User } from '../../shared/models/User';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../shared/services/auth.service';
-import { getAuth, updatePassword } from "firebase/auth";
+import { updatePassword } from "firebase/auth";
 
 
 @Component({
@@ -70,14 +70,13 @@ export class ProfileComponent implements OnInit, OnChanges{
   }
 
 
-  
   changePassword(): void {
+    /*
     if (this.profileForm.valid) {
       const newPassword = this.profileForm.get('newPassword')?.value;
       const confirmNewPassword = this.profileForm.get('confirmNewPassword')?.value;
       if (newPassword === confirmNewPassword) {
-        const auth = getAuth();
-        const user = auth.currentUser;
+        const user = this.user;
         if(user){
           updatePassword(user, newPassword).then(() => {
             this.snackBar.open('Password changed successfully!', 'Close', { duration: 3000 });
@@ -89,8 +88,8 @@ export class ProfileComponent implements OnInit, OnChanges{
         this.snackBar.open('Passwords do not match!', 'Close', { duration: 3000 });
       }
     }
+    */
   }
-  
 
 
 /*
